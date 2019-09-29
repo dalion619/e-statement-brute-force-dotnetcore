@@ -144,6 +144,7 @@ namespace StatementBruteForce.Core
                     {
                         var startSequence = 0;
                         var endSequence = 999;
+                        var incrementSequence = 1;
 
                         if (!string.IsNullOrEmpty(value: seedModel.GenderSequenceDigit1))
                         {
@@ -154,14 +155,16 @@ namespace StatementBruteForce.Core
                         if (!string.IsNullOrEmpty(value: seedModel.GenderSequenceDigit2))
                         {
                             startSequence += Convert.ToInt32(value: seedModel.GenderSequenceDigit2) * 10;
+                            incrementSequence = 100;
                         }
 
                         if (!string.IsNullOrEmpty(value: seedModel.GenderSequenceDigit3))
                         {
                             startSequence += Convert.ToInt32(value: seedModel.GenderSequenceDigit3);
+                            incrementSequence = 10;
                         }
 
-                        for (var s = startSequence; s <= endSequence; s++)
+                        for (var s = startSequence; s <= endSequence; s+=incrementSequence)
                         {
                             var startCitizenship = 0;
                             var endCitizenship = 1;
